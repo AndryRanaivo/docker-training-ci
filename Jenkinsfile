@@ -11,8 +11,7 @@ pipeline {
 		stage('build & publish') {
 			steps {
 				sh "hostname; mount; ls -alR /var/jenkins_home/workspace/"
-				//sh 'pwd; ls -al; docker run --rm -v root_jenkins:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock -v m2:/root/.m2 -w"$PWD" maven:3.5.2-jdk-8-alpine mvn --settings settings.xml deploy'
-                                sh 'pwd; ls -al; docker run --rm -v root_jenkins:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock -v m2:/root/.m2 -w"$PWD" maven:3.5.2-jdk-8-alpine mount'
+				sh 'pwd; ls -al; docker run --rm -v jenkins_jenkins:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock -v m2:/root/.m2 -w"$PWD" maven:3.5.2-jdk-8-alpine mvn --settings settings.xml deploy'
 				sh 'docker push nexus:8082/treeptik/helloworld'
 			}
 		}
