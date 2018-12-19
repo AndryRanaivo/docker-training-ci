@@ -11,7 +11,7 @@ pipeline {
 		stage('build & publish') {
 			steps {
 				sh 'docker run --rm -v jenkins_jenkins:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock -v m2:/root/.m2 -w"$PWD" maven:3.5.2-jdk-8-alpine mvn --settings settings.xml deploy'
-				sh 'docker push nexus:8082/treeptik/helloworld'
+				sh 'docker push 68.183.144.201:8082/treeptik/helloworld'
 			}
 		}
 		stage('Deploy QA') {
