@@ -22,7 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-    <server.address>68.183.51.136</server.address>
+    <server.address>68.183.144.201</server.address>
 	</properties>
 
 	<dependencies>
