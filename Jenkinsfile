@@ -17,7 +17,7 @@ pipeline {
 		stage('Deploy QA') {
 			steps {
 				sh 'docker stop QA || true && docker rm -f QA || true'
-				sh 'docker run -d -p 8380:8080 --name QA nexus:8082/treeptik/helloworld:latest'
+				sh 'docker run -d -p 8380:8080 --name QA  68.183.144.201:8082/treeptik/helloworld:latest'
 			}
 		}
 		stage('Integration Tests') {
@@ -28,7 +28,7 @@ pipeline {
 		stage('Deploy PrePROD') {
 			steps {
 				sh 'docker stop PrePROD || true && docker rm -f PrePROD || true'
-				sh 'docker run -d -p 8381:8080 --name PrePROD nexus:8082/treeptik/helloworld:latest'
+				sh 'docker run -d -p 8381:8080 --name PrePROD 68.183.144.201:8082/treeptik/helloworld:latest'
 			}
 		}
 		stage('PrePROD Tests') {
@@ -39,7 +39,7 @@ pipeline {
 		stage('Deploy PROD') {
 			steps {
 				sh 'docker stop PROD || true && docker rm -f PROD || true'
-				sh 'docker run -d -p 8382:8080 --name PROD nexus:8082/treeptik/helloworld:latest'
+				sh 'docker run -d -p 8382:8080 --name PROD 68.183.144.201:8082/treeptik/helloworld:latest'
 			}
 		}
 	}
